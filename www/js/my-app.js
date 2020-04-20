@@ -19,10 +19,7 @@ var app = new Framework7({
         path: '/',
         url: 'index.html',
       },
-      {
-        path: '/index/',
-        url: 'index.html',
-      },
+  
       {
         path: '/about/',
         url: 'about.html',
@@ -39,6 +36,10 @@ var app = new Framework7({
         path: '/firstlog/',
         url: 'firstlog.html',
       },
+      {
+        path: '/iniciar/',
+        url: 'iniciar.html',
+      },
 
     ]
     // ... other parameters
@@ -46,12 +47,11 @@ var app = new Framework7({
 
 var mainView = app.views.create('.view-main');
 
+
+
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     console.log("Device is ready!");
-
-    $$('#inicio').on('click', fnSetEmail);
-
 });
 
 
@@ -69,7 +69,7 @@ $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
     // Inicio Panel
     console.log(e);
 
-    $$('#inicio').on('click', fnSetEmail);
+    $$('#inicio').on('click', fnSetEmail)
 })
 
 
@@ -85,29 +85,6 @@ function fnSetEmail() {
 
     //lo seteo en el panel del menu
     $$('#labelEmail').text(elMail);
-
-    idDelBoton = this.id;
-    mensaje = "Mi ID es: " + idDelBoton + "<br/>";
-
-    // voy a "separar" el valor del id, usando los guiones bajos
-    // el split separa un valor (en este caso una variable),
-    // usando el caracter o caracteres indicandos como parámetro
-    // el resultado es un array!
-    var partes = idDelBoton.split("_");
-
-    // sabiendo la forma: btn_g1_1 puedo tener:
-    p0 = partes[0];
-    p1 = partes[1];
-    p2 = partes[2];
-
-    mensaje += "Soy del Grupo: " + p1 + "<br/>";
-    mensaje += "Y tengo el nro: " + p2 + "<br/>";
-
-
-    $$('#msgBtn').html(mensaje);
-
-
-
 }
 
 
