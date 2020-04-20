@@ -10,8 +10,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
-
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline'; font-src * data: URIs ">
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
@@ -46,7 +45,6 @@
 
 
         <!-- Statusbar overlay -->
-        <div class="statusbar"></div>
     
         <!-- Your main view, should have "view-main" class -->
         <div class="view view-main">
@@ -66,7 +64,7 @@
                 <!-- Toolbar 
                 <div class="toolbar toolbar-bottom">
                     <div class="toolbar-inner">
-                    <!-- Toolbar links 
+                   Toolbar links 
                     <a href="#" class="link">Link 1</a>
                     <a href="#" class="link">Link 2</a>
                     </div>
@@ -165,6 +163,29 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.bundle.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebase/5.9.1/firebase-auth.js"></script>
+
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyCZ9IC9Plp3ARJSHlD7TygceI5reg2WNdc",
+            authDomain: "ubabies-app.firebaseapp.com",
+            databaseURL: "https://ubabies-app.firebaseio.com",
+            projectId: "ubabies-app",
+            storageBucket: "ubabies-app.appspot.com",
+            messagingSenderId: "19566450920",
+            appId: "1:19566450920:web:f26bab68e11dfb84cc115d"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+        </script>
 </body>
 
 </html>
