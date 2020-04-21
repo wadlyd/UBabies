@@ -69,9 +69,23 @@ $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
     // Inicio Panel
     console.log(e);
 
-    $$('#inicio').on('click', fnSetEmail)
+    $$('#registro').on('click', fnSetEmail)
 })
 
+
+$$(document).on('page:init', '.page[data-name="registro"]', function (e) {
+  // Inicio Panel
+  console.log(e);
+
+  $$("#registro").on("click", function(){
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+});
+})
 
 /*$$(document).on('page:init', '.page[data-name="panel"]', function(e){
     //Inicio Panel
