@@ -64,28 +64,23 @@ $$(document).on('page:init', function (e) {
 
 
 
-// Option 2. Using live 'page:init' event handlers for each page
+/*Option 2. Using live 'page:init' event handlers for each page*/
 $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
     // Inicio Panel
     console.log(e);
 
     $$('#registro').on('click', fnSetEmail)
+
+    $$('#registro').on('click', fnRegistro)
 })
 
+$$(document).on('page:init', '.page[data-name="iniciar"]', function (e) {
+    // Inicio Panel
+    console.log(e);
 
-$$(document).on('page:init', '.page[data-name="registro"]', function (e) {
-  // Inicio Panel
-  console.log(e);
-
-  $$("#registro").on("click", function(){
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
-});
+    $$('#inicio').on('click', fnLogIn)
 })
+
 
 /*$$(document).on('page:init', '.page[data-name="panel"]', function(e){
     //Inicio Panel
@@ -94,11 +89,45 @@ $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
 
 
 /** FUNCIONES PROPIAS **/
+
 function fnSetEmail() {
     var elMail = $$('#email').val(); //recupero el valor del input mail
 
     //lo seteo en el panel del menu
     $$('#labelEmail').text(elMail);
+  }
+
+
+
+/** funccion de registro - falta la base de datos **/
+
+function fnRegistro() {
+
+    var elMail = $$('#email').val(); // es un input... uso val!
+    var laClave = $$('#password').val(); // es un input... uso val!
+
+    email = elMail;
+
+    var huboError = 0;
+
+    firebase.auth().createUserWithEmailAndPassword(elMail, laClave)          
+      .catch(function(error) {       
+        // Handle Errors here.
+        huboError = 1;
+        var errorCode = error.code;
+        var errorMessage = error.message; 
+        
+        fnMostrarError(errorCode);
+        fnMostrarError(errorMessage);
+      })
+      .then(function(){
+          if(huboError == 0){
+            // alert('OK');
+            // lo seteo en el panel.... contenedor lblEmail
+            $$('#lblEmail').text(elMail);   // es una etiqueta html. Text va sin formato
+            mainView.router.navigate("/datospersonales/");
+          }
+      });
 }
 
 
