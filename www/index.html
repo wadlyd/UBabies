@@ -32,13 +32,16 @@
         <div class="panel panel-left panel-reveal panel-resizable panel-init">
             <div class="block">
                 <h3>MENU</h3>
-                <p> <i class="f7-icons" data-icon="calendar"></i> E-mail</p>
+                <p> <i class="f7-icons icons material-icons">envelope</i> E-mail</p>
                 <div id="labelEmail"></div>
                 <hr/>
                 <p>Nombre</p>
                 <div id="labelNombre"></div>
                 <hr>
-
+                <p>
+                    <a class="button popup-open" href="#" data-popup=".perfil">Perfil</a>
+                </p>
+                
                 <p><a class="panel-close" href="#">Logout</a></p>
             </div>
         </div>
@@ -100,13 +103,13 @@
                         - El o los elementos que lo abren tienen la clase .popup-open y abrirá el popup definido en data-popup
                         - El o los elementos que lo cierren tienen la clase popup-close y se cerrará a sí mismo. 
                        -->
-                      <div class="popup my-popup">
+                      <div class="popup perfil">
                         <div class="view">
                           <div class="page">
                             <div class="navbar">
                               <div class="navbar-bg"></div>
                               <div class="navbar-inner">
-                                <div class="title">popup</div>
+                                <div class="title">Datos personales</div>
                                 <div class="right">
                                   <!-- Link to close popup -->
                                   <a class="link popup-close">Cerrar</a>
@@ -115,11 +118,81 @@
                             </div>
                             
                             <div class="page-content">
-                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, officiis.
+                                <div class="block-title">Complete con sus datos</div>
+                                    <div class="list inline-labels no-hairlines-md">
+                                        <ul>
+                                            <li class="item-content item-input">
+                                              <div class="item-media">
+                                                <i class="icon demo-list-icon"></i>
+                                              </div>
+                                              <div class="item-inner">
+                                                <div class="item-title item-label">Nombre</div>
+                                                <div class="item-input-wrap">
+                                                  <input type="text" id="nombre" placeholder="Nombre">
+                                                  <span class="input-clear-button"></span>
+                                                </div>
+                                              </div>
+                                            </li>
+                                            <li class="item-content item-input">
+                                              <div class="item-media">
+                                                <i class="icon demo-list-icon"></i>
+                                              </div>
+                                              <div class="item-inner">
+                                                <div class="item-title item-label">Apellido</div>
+                                                <div class="item-input-wrap">
+                                                  <input type="text" id="apellido" placeholder="Apellido">
+                                                  <span class="input-clear-button"></span>
+                                                </div>
+                                              </div>
+                                            </li>
+                                            <li class="item-content item-input">
+                                              <div class="item-media">
+                                                <i class="icon demo-list-icon"></i>
+                                              </div>
+                                              <div class="item-inner">
+                                                <div class="item-title item-label">Página web</div>
+                                                <div class="item-input-wrap">
+                                                  <input type="url" id="paginaweb" placeholder="URL">
+                                                  <span class="input-clear-button"></span>
+                                                </div>
+                                              </div>
+                                            </li>
+                                            <li class="item-content item-input">
+                                              <div class="item-media">
+                                                <i class="icon demo-list-icon"></i>
+                                              </div>
+                                              <div class="item-inner">
+                                                <div class="item-title item-label">Telefono</div>
+                                                <div class="item-input-wrap">
+                                                  <input type="number" id="telefono" placeholder="Celular">
+                                                  <span class="input-clear-button"></span>
+                                                </div>
+                                              </div>
+                                            </li>
+                                            
+                                            <li class="item-content item-input">
+                                              <div class="item-media">
+                                                <i class="icon demo-list-icon"></i>
+                                              </div>
+                                              <div class="item-inner">
+                                                <div class="item-title item-label">Fecha de Nac.</div>
+                                                <div class="item-input-wrap">
+                                                  <input type="date" id="fnac" value="2014-04-30" placeholder="Please choose...">
+                                                </div>
+                                              </div>
+                                            </li>
+                                        </ul>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-10"></div>
+                                            <div class="col">
+                                                <a href="//" class="button button-raised button-large button-fill color-blue" id="guardarDatos">Guardar</a>
+                                            </div>
+                                            <div class="col-10"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
                         
 
                     <!-- EL POPUPOVER

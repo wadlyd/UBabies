@@ -40,6 +40,18 @@ var app = new Framework7({
         path: '/iniciar/',
         url: 'iniciar.html',
       },
+      {
+        path: '/miembarazo/',
+        url: 'miembarazo.html',
+      },
+      {
+        path: '/midiario/',
+        url: 'midiario.html',
+      },
+      {
+        path: '/miperfil/',
+        url: 'miperfil.html',
+      },
 
     ]
     // ... other parameters
@@ -51,7 +63,8 @@ var mainView = app.views.create('.view-main');
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
-    console.log("Device is ready!");
+    
+    fnMostrarError("Device is ready!");
 });
 
 
@@ -59,7 +72,7 @@ $$(document).on('deviceready', function() {
 // Option 1. Using one 'page:init' handler for all pages
 $$(document).on('page:init', function (e) {
     // Do something here when page loaded and initialized
-    console.log(e);
+    fnMostrarError(e);
 })
 
 
@@ -67,7 +80,7 @@ $$(document).on('page:init', function (e) {
 /*Option 2. Using live 'page:init' event handlers for each page*/
 $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
     // Inicio Panel
-    console.log(e);
+    fnMostrarError(e);
 
     $$('#registro').on('click', fnSetEmail)
 
@@ -76,7 +89,7 @@ $$(document).on('page:init', '.page[data-name="registro"]', function (e) {
 
 $$(document).on('page:init', '.page[data-name="iniciar"]', function (e) {
     // Inicio Panel
-    console.log(e);
+    fnMostrarError(e);
 
     $$('#inicio').on('click', fnLogIn)
 })
@@ -132,3 +145,77 @@ function fnRegistro() {
 
 
 
+/** funccion de Login - falta la base de datos **/
+function fnLogIn() {
+
+
+    var emailLog = $$('#emailLogin').val();
+    var claveLog = $$('#passwordLogin').val();
+       
+//Se declara la variable huboError (bandera)
+    var huboError = 0;
+        
+    firebase.auth().signInWithEmailAndPassword(emailLog, claveLog)
+        .catch(function(error){
+//Si hubo algun error, ponemos un valor referenciable en la variable huboError
+            huboError = 1;
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            fnMostrarError(errorMessage);
+            fnMostrarError(errorCode);
+        })
+        
+        .then(function(){   
+//En caso de que esté correcto el inicio de sesión y no haya errores, se dirige a la siguiente página
+            if(huboError == 0){
+
+                tipoUsuario = "";
+
+                // recuperar el tipo de usuario segun el email logueado....
+                // REF: https://firebase.google.com/docs/firestore/query-data/get-data
+                // TITULO: Obtén un documento
+                
+                refUsuarios.doc(email).get().then(function(doc) {
+                      if (doc.exists) {
+                          //console.log("Document data:", doc.data());
+                          //console.log("Tipo de Usuario: " + doc.data().tipo );
+                          tipoUsuario = doc.data().tipo;
+
+                          if ( tipoUsuario == "VIS" ) {
+                              mainView.router.navigate("/panel/");
+                          }
+                          if ( tipoUsuario == "ADM" ) {
+                              mainView.router.navigate("/panel_admin/");
+                          }
+                          
+
+
+                      } else {
+                          // doc.data() will be undefined in this case
+                          //console.log("No such document!");
+                      }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error);
+                });
+
+
+            }
+
+        });
+
+
+
+
+}
+
+
+
+function fnMostrarError(txt) {
+  if (mostrarErrores == 1) {
+      console.log("ERROR: " + txt);
+  }
+}
+function mostrarErrores(txt) {
+  
+  console.log("ERROR: " + txt);
+}
