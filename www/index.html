@@ -10,7 +10,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline'; font-src * data: URIs ">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
+
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
@@ -18,7 +19,7 @@
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#2196f3">
     <!-- Your app title -->
-    <title>UBabies</title>
+    <title>My App</title>
     <!-- Path to Framework7 Library CSS -->
     <link rel="stylesheet" href="lib/framework7/css/framework7.bundle.min.css">
     <!-- Path to icons -->
@@ -29,25 +30,8 @@
 
 <body>
     <div id="app">
-        <div class="panel panel-left panel-reveal panel-resizable panel-init">
-            <div class="block">
-                <h3>MENU</h3>
-                <p> <i class="f7-icons icons material-icons">envelope</i> E-mail</p>
-                <div id="labelEmail"></div>
-                <hr/>
-                <p>Nombre</p>
-                <div id="labelNombre"></div>
-                <hr>
-                <p>
-                    <a class="button popup-open" href="#" data-popup=".perfil">Perfil</a>
-                </p>
-                
-                <p><a class="panel-close" href="#">Logout</a></p>
-            </div>
-        </div>
-
-
         <!-- Statusbar overlay -->
+        <div class="statusbar"></div>
     
         <!-- Your main view, should have "view-main" class -->
         <div class="view view-main">
@@ -64,45 +48,39 @@
                     </div>
                 </div>
         
-                <!-- Toolbar 
+                <!-- Toolbar -->
                 <div class="toolbar toolbar-bottom">
                     <div class="toolbar-inner">
-                   Toolbar links 
+                    <!-- Toolbar links -->
                     <a href="#" class="link">Link 1</a>
                     <a href="#" class="link">Link 2</a>
                     </div>
-                </div>-->
+                </div>
         
                 <!-- Scrollable page content -->
                 <div class="page-content text-align-center">
                     
-                    <div class="block">
-                        <div>
-                            <img src="images/logo.jpeg" width="300vh" alt="">
-                        </div>
-                    <!-- Link to another page -->
-                    <!--<a href="/about/" class="button button-round button-fill">Página About</a>-->
-                    
+                    <div>
+                        <img src="images/logo.jpeg" width="300vh" alt="">
+                    </div>
+
                     <div><br></div>
 
                     <!-- BOTONES DE INICIO / REGISTRO -->
                     <div class="row">
                       <div class="col-50">    
-                        <a href="/iniciar/" class="button button-large button-raised button-fill color-lightblue">Iniciar sesión</a></p>
+                        <a href="/iniciar/" class="button button-large button-raised button-fill color-lightblue">Iniciar sesión</a>
                       </div>
                       <div class="col-50">    
-                        <a href="/registro/" class="button button-large button-raised button-fill color-yellow">Registrarse</a></p>
+                        <a href="/registro/" class="button button-large button-raised button-fill color-yellow">Registrarse</a>
                       </div>  
                     </div>
 
                     <a href="/firstlog/">Lo haré después</a>
 
-                      <!-- 
-                        EL POPUP:
-                        - Ver que la relacion se propude con la clase .my-popup
-                        - El o los elementos que lo abren tienen la clase .popup-open y abrirá el popup definido en data-popup
-                        - El o los elementos que lo cierren tienen la clase popup-close y se cerrará a sí mismo. 
-                       -->
+
+
+                    
                       <div class="popup perfil">
                         <div class="view">
                           <div class="page">
@@ -119,116 +97,96 @@
                             
                             <div class="page-content">
                                 <div class="block-title">Complete con sus datos</div>
-                                    <div class="list inline-labels no-hairlines-md">
-                                        <ul>
-                                            <li class="item-content item-input">
-                                              <div class="item-media">
-                                                <i class="icon demo-list-icon"></i>
-                                              </div>
-                                              <div class="item-inner">
-                                                <div class="item-title item-label">Nombre</div>
-                                                <div class="item-input-wrap">
-                                                  <input type="text" id="nombre" placeholder="Nombre">
-                                                  <span class="input-clear-button"></span>
-                                                </div>
-                                              </div>
-                                            </li>
-                                            <li class="item-content item-input">
-                                              <div class="item-media">
-                                                <i class="icon demo-list-icon"></i>
-                                              </div>
-                                              <div class="item-inner">
-                                                <div class="item-title item-label">Apellido</div>
-                                                <div class="item-input-wrap">
-                                                  <input type="text" id="apellido" placeholder="Apellido">
-                                                  <span class="input-clear-button"></span>
-                                                </div>
-                                              </div>
-                                            </li>
-                                            <li class="item-content item-input">
-                                              <div class="item-media">
-                                                <i class="icon demo-list-icon"></i>
-                                              </div>
-                                              <div class="item-inner">
-                                                <div class="item-title item-label">Página web</div>
-                                                <div class="item-input-wrap">
-                                                  <input type="url" id="paginaweb" placeholder="URL">
-                                                  <span class="input-clear-button"></span>
-                                                </div>
-                                              </div>
-                                            </li>
-                                            <li class="item-content item-input">
-                                              <div class="item-media">
-                                                <i class="icon demo-list-icon"></i>
-                                              </div>
-                                              <div class="item-inner">
-                                                <div class="item-title item-label">Telefono</div>
-                                                <div class="item-input-wrap">
-                                                  <input type="number" id="telefono" placeholder="Celular">
-                                                  <span class="input-clear-button"></span>
-                                                </div>
-                                              </div>
-                                            </li>
-                                            
-                                            <li class="item-content item-input">
-                                              <div class="item-media">
-                                                <i class="icon demo-list-icon"></i>
-                                              </div>
-                                              <div class="item-inner">
-                                                <div class="item-title item-label">Fecha de Nac.</div>
-                                                <div class="item-input-wrap">
-                                                  <input type="date" id="fnac" value="2014-04-30" placeholder="Please choose...">
-                                                </div>
-                                              </div>
-                                            </li>
-                                        </ul>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-10"></div>
-                                            <div class="col">
-                                                <a href="//" class="button button-raised button-large button-fill color-blue" id="guardarDatos">Guardar</a>
+                                  <div class="list inline-labels no-hairlines-md">
+                                      <ul>
+                                          <li class="item-content item-input">
+                                            <div class="item-media">
+                                              <i class="icon demo-list-icon"></i>
                                             </div>
-                                            <div class="col-10"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-
-                    <!-- EL POPUPOVER
-                        <!-- Similar al popup en programación. En lugar de popup va popover 
-                        <p><a href="#" data-popover=".my-popover" class="popover-open">Abrir Popover</a></p>
-
-                        <!-- And somewhere in DOM 
-                        <div class="popover my-popover">
-                          <div class="popover-inner block">
-                            <!-- Link to close popover
-                            <h4>Titulo</h4>
-                            <p>Texto 1</p>
-                            <p>Texto 2</p>
-                            <a class="link popover-close">Cerrar Popover</a>
+                                            <div class="item-inner">
+                                              <div class="item-title item-label">Nombre</div>
+                                              <div class="item-input-wrap">
+                                                <input type="text" id="nombre" placeholder="Nombre">
+                                                <span class="input-clear-button"></span>
+                                              </div>
+                                            </div>
+                                          </li>
+                                          <li class="item-content item-input">
+                                            <div class="item-media">
+                                              <i class="icon demo-list-icon"></i>
+                                            </div>
+                                            <div class="item-inner">
+                                              <div class="item-title item-label">Apellido</div>
+                                              <div class="item-input-wrap">
+                                                <input type="text" id="apellido" placeholder="Apellido">
+                                                <span class="input-clear-button"></span>
+                                              </div>
+                                            </div>
+                                          </li>
+                                          <li class="item-content item-input">
+                                            <div class="item-media">
+                                              <i class="icon demo-list-icon"></i>
+                                            </div>
+                                            <div class="item-inner">
+                                              <div class="item-title item-label">Página web</div>
+                                              <div class="item-input-wrap">
+                                                <input type="url" id="paginaweb" placeholder="URL">
+                                                <span class="input-clear-button"></span>
+                                              </div>
+                                            </div>
+                                          </li>
+                                          <li class="item-content item-input">
+                                            <div class="item-media">
+                                              <i class="icon demo-list-icon"></i>
+                                            </div>
+                                            <div class="item-inner">
+                                              <div class="item-title item-label">Telefono</div>
+                                              <div class="item-input-wrap">
+                                                <input type="number" id="telefono" placeholder="Celular">
+                                                <span class="input-clear-button"></span>
+                                              </div>
+                                            </div>
+                                          </li>
+                                          
+                                          <li class="item-content item-input">
+                                            <div class="item-media">
+                                              <i class="icon demo-list-icon"></i>
+                                            </div>
+                                            <div class="item-inner">
+                                              <div class="item-title item-label">Fecha de Nac.</div>
+                                              <div class="item-input-wrap">
+                                                <input type="date" id="fnac" value="2014-04-30" placeholder="Please choose...">
+                                              </div>
+                                            </div>
+                                          </li>
+                                      </ul>
+                                      <br>
+                                      <div class="row">
+                                          <div class="col-10"></div>
+                                          <div class="col">
+                                              <a href="#" class="button button-raised button-large button-fill color-blue" id="guardarDatos">Guardar</a>
+                                          </div>
+                                          <div class="col-10"></div>
+                                      </div>
+                                  </div>
+                              </div>
                           </div>
-                        </div>-->
-
-
-
-
-                    <!-- GRUPO DE BOTONES CON EVENTOS 
-                        <div class="block">
-                          <div class="row">
-                            <button id="btn_g1_1" class="col button button-outline tocaBoton">Botón 1</button>
-                            <button id="btn_g1_2" class="col button button-outline tocaBoton">Botón 2</button>
-                            <button id="btn_g1_3" class="col button button-outline tocaBoton">Botón 3</button>
-                          </div>
-                          <h3 id="msgBtn">Tocá un botón y te digo algo</h3>
-                        </div>-->
+                        </div>
+                      </div>
 
 
 
 
 
 
-                    </div>
+
+
+
+
+
+
+
+                    
                 </div>
             </div>
         </div>
@@ -236,6 +194,7 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.bundle.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
+
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -262,7 +221,8 @@
           firebase.initializeApp(firebaseConfig);
         </script>
 
-    
+
+
 </body>
 
 </html>
