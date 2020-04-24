@@ -1,5 +1,10 @@
 /* Your app custom styles here */
+.btnplus{
+	height: 250px;
+	border: 1px solid blue;
+}
 .cuadro{
+	height: 100px;
 	border: 1px solid black;
-	height: 70px;
+	border-radius: 20px;
 }
