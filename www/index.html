@@ -10,7 +10,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline'; font-src * data: URIs ">
 
     <!-- Required meta tags-->
     <meta charset="utf-8">
@@ -30,6 +30,22 @@
 
 <body>
     <div id="app">
+      <div class="panel panel-left panel-reveal panel-resizable panel-init">
+            <div class="block">
+                <h3>MENU</h3>
+                <p> <i class="f7-icons icons material-icons">envelope</i> E-mail</p>
+                <div id="labelEmail"></div>
+                <hr/>
+                <p>Nombre</p>
+                <div id="labelNombre"></div>
+                <hr>
+                <p>
+                    <a class="button popup-open" href="#" data-popup=".perfil">Perfil</a>
+                </p>
+                
+                <p><a class="panel-close" href="#">Logout</a></p>
+            </div>
+      </div>
         <!-- Statusbar overlay -->
         <div class="statusbar"></div>
     
@@ -48,25 +64,29 @@
                     </div>
                 </div>
         
-                <!-- Toolbar -->
+                <!-- Toolbar
                 <div class="toolbar toolbar-bottom">
                     <div class="toolbar-inner">
-                    <!-- Toolbar links -->
+                    
                     <a href="#" class="link">Link 1</a>
                     <a href="#" class="link">Link 2</a>
                     </div>
-                </div>
+                </div> -->
         
                 <!-- Scrollable page content -->
                 <div class="page-content text-align-center">
                     
                     <div>
-                        <img src="images/logo.jpeg" width="300vh" alt="">
+                        <img src="images/logo.jpeg" width="300vw" alt="">
+
                     </div>
 
-                    <div><br></div>
+                
+               
+
 
                     <!-- BOTONES DE INICIO / REGISTRO -->
+                   <div class="block">
                     <div class="row">
                       <div class="col-50">    
                         <a href="/iniciar/" class="button button-large button-raised button-fill color-lightblue">Iniciar sesión</a>
@@ -75,8 +95,8 @@
                         <a href="/registro/" class="button button-large button-raised button-fill color-yellow">Registrarse</a>
                       </div>  
                     </div>
-
-                    <a href="/firstlog/">Lo haré después</a>
+                   </div> 
+                    <a href="/firstlog/" class="text-color-black">Lo haré después</a>
 
 
 
@@ -191,10 +211,8 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.bundle.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
-
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -223,6 +241,11 @@
 
 
 
+
+
+
+
+    <script type="text/javascript" src="cordova.js"></script>
 </body>
 
 </html>
