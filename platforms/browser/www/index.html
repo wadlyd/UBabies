@@ -31,19 +31,105 @@
 <body>
     <div id="app">
       <div class="panel panel-left panel-reveal panel-resizable panel-init">
-            <div class="block">
-                <h3>MENU</h3>
-                <p> <i class="f7-icons icons material-icons">envelope</i> E-mail</p>
-                <div id="labelEmail"></div>
-                <hr/>
-                <p>Nombre</p>
-                <div id="labelNombre"></div>
-                <hr>
-                <p>
-                    <a class="button popup-open" href="#" data-popup=".perfil">Perfil</a>
-                </p>
+            <div>
+
+                <div class="list">
+                  <h3 class="block">Menu</h3>
+                  <ul>
+                    <li>
+                      <a href="#" class="item-link item-content">
+                        <i class="icons f7-icons material-icons">gear_alt_fill</i>
+                        <div class="item-inner">
+                          <div class="item-title"> Configuraciones</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link item-content">
+                        <i class="icons f7-icons material-icons">square_favorites_fill</i>
+                        <div class="item-inner">
+                          <div class="item-title"> Política de privacidad</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link item-content">
+                        <i class="icons f7-icons material-icons">square_favorites_fill</i>
+                        <div class="item-inner">
+                          <div class="item-title"> Condiciones de uso</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+            
+                <div class="list inline-labels no-hairlines-md">
+                  <h3 class="block">Embarazo</h3>
+                  <ul>
+                    <li class="item-content item-input">
+                      <div class="item-media">
+                        <i class="icon demo-list-icon"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-label">Nombre</div>
+                        <div class="item-input-wrap">
+                          <input type="text" placeholder="Nombre del bebé">
+                          <span class="input-clear-button"></span>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content item-input">
+                      <div class="item-media">
+                        <i class="icon demo-list-icon"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-label">Sexo del bebé</div>
+                        <div class="item-input-wrap input-dropdown-wrap">
+                          <select placeholder="Please choose...">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                          </select>
+                        </div>
+                      </div>
+                    </li>
+                     <li class="item-content item-input">
+                      <div class="item-media">
+                        <i class="icon demo-list-icon"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-label">Primer hijo</div>
+                        <div class="item-input-wrap input-dropdown-wrap">
+                          <select placeholder="Please choose...">
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content item-input">
+                      <div class="item-media">
+                        <i class="icon demo-list-icon"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-label">Parto</div>
+                        <div class="item-input-wrap">
+                          <input type="date" value="2014-04-30" placeholder="Please choose...">
+                        </div>
+                      </div>
+                    </li>
+                        
+                  </ul> 
+                </div>
+
+                  <div class="row">
+                    <div class="col"></div>
+                    <a class="col button button-raised button-small button-fill color-ligthblue popup-open" href="#" data-popup=".perfil">Perfil</a>
+                    <div class="col"></div>
+                  </div>
+              
                 
-                <p><a class="panel-close" href="#">Logout</a></p>
+              
             </div>
       </div>
         <!-- Statusbar overlay -->
@@ -63,15 +149,6 @@
                         <!--<div class="right"><i class="icon icon-forward"></i></div>-->
                     </div>
                 </div>
-        
-                <!-- Toolbar
-                <div class="toolbar toolbar-bottom">
-                    <div class="toolbar-inner">
-                    
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
-                    </div>
-                </div> -->
         
                 <!-- Scrollable page content -->
                 <div class="page-content text-align-center">

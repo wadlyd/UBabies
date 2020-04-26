@@ -8,46 +8,16 @@
             <span class="ios-only">Back</span>
             </a>
         </div>
-        <div class="title">UBabies app</div>
+        <div class="title">Calcular</div>
          <div class="right"><i data-panel=".panel-left" class="panel-open f7-icons">menu</i></div>
         </div>
     </div>
 
     
-    <!-- Additional "tabbar-labels" class -->
-      <div class="toolbar tabbar tabbar-labels toolbar-bottom">
-        <div class="toolbar-inner">
-          <a href="#" class="tab-link tab-link-active">
-            <!-- Different icons for iOS and MD themes -->
-            <img src="images/bb.ico" width="30px" alt="aparezo">
-            <!--<i class="icon f7-icons material-icons">desktopcomputer</i>-->
-            <!-- Label text -->
-            <span class="tabbar-label">Bebé</span>
-          </a>
-          <a href="/miembarazo/" class="tab-link">
-            <img src="images/embarazo.ico" width="12px" alt="embarazo">
-            <!--<i class="icon f7-icons material-icons">film_fill</i>-->
-            <span class="tabbar-label">Embarazo</span>
-          </a>
-          <a href="/midiario/" class="tab-link">
-            <!--<img src="images/diarioo.ico" width="30px" alt="">-->
-           <i class="icon f7-icons material-icons">book_fill</i>
-            <span class="tabbar-label">Diario</span>
-          </a>
-          <a href="/micarrito/" class="tab-link">
-            <i class="icon f7-icons material-icons">cart_fill</i>
-            <span class="tabbar-label">Carrito</span>
-          </a>
-          <!--<a href="/miperfil/" class="tab-link">
-            <i class="icon f7-icons material-icons">person</i>
-            <span class="tabbar-label">Perfil</span>
-          </a>-->
-        </div>
-      </div>
-    <!-- Additional "tabbar-labels" class -->
+    
 
     <div class="page-content">
-       <div class="block-title">Ingresa el 1er dia de tu periodo</div>
+       <div class="block-title">Ingresa el 1er dia de tu <br> ultimo periodo</div>
         <div class="list no-hairlines-md">
           <ul>
             <li>
@@ -61,5 +31,36 @@
             </li>
           </ul>
         </div>
+          
+        <div class="row">
+          <div class="col"></div>
+          <div>
+            <img src="images/letraO.ico" width="20vw" alt="">
+          </div>
+          <div class="col"></div>
+        </div>
+
+       <div class="block-title">Ingresa la fecha de concepción</div> 
+        <div class="list no-hairlines-md">
+          <ul>
+            <li>
+              <div class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-input-wrap">
+                    <input type="text" placeholder="Select date" readonly="readonly" id="demo-calendar-events"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cajaFechaParto gray" id="fechaParto"></div>
+
+        <div class="block">    
+          <a href="/#/" class="button button-large button-raised button-fill color-lightblue">Guardar fecha de parto</a>
+          <br>
+        <a href="/miembarazo/" class="text-color-black text-center">Saltar</a>
+        </div> 
     </div>
 </div>
