@@ -1,6 +1,6 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
 <div class="page" data-name="miembarazo">
-    <div class="navbar bg-color-lightblue">
+    <div class="navbar">
         <div class="navbar-inner">
         <div class="left">
             <a href="#" class="link back">
@@ -9,7 +9,9 @@
             </a>
         </div>
         <div class="title">UBabies app</div>
-         <div class="right"><i data-panel=".panel-left" class="panel-open f7-icons">menu</i></div>
+
+         <div class="right">
+          <i data-panel=".panel-left" class="panel-open f7-icons">menu</i></div>
         </div>
     </div>
 
@@ -38,63 +40,108 @@
             <i class="icon f7-icons material-icons">cart_fill</i>
             <span class="tabbar-label">Carrito</span>
           </a>
-          <!--<a href="/miperfil/" class="tab-link">
+          <a href="/micarrito/" class="tab-link">
             <i class="icon f7-icons material-icons">person</i>
-            <span class="tabbar-label">Perfil</span>
-          </a>-->
+            <span class="tabbar-label">Yo</span>
+          </a>
         </div>
       </div>
     <!-- Additional "tabbar-labels" class -->
 
     <div class="page-content">
-        <div class="block-title">UBabies app</div>
-        <div class="block block-strong">
-          
+      <div class="right fab-right-top">
+        <a class="pop popup-open" href="#" data-popup=".popup-about">
+          <i class="icon f7-icons material-icons">calendar</i>
+        </a>
+      </div>
 
-          <!--<div class="btnplus">
-            <div class="fab fab-center-center color-green">
-              <a href="#">
-                 Icons For iOS Theme 
-                <i class="icon f7-icons if-not-md">plus</i>
-                <i class="icon f7-icons if-not-md">xmark</i>
-                <Icons For MD Theme 
-                <i class="icon material-icons md-only">add</i>
-                <i class="icon material-icons md-only">close</i>
+      <!-- cuerpo -->
+        <div class="block block-strong bg-color-lightblue">
+          <div class="row">
+            <div class="col">
+              <a href="">
+                <div class="elevation-1 cuadro">
+                  <br><br><i class="icon f7-icons material-icons color-yellow">rectangle_fill_on_rectangle_angled_fill</i>
+                  <span class="text-color-black"> <b>Blog</b></span>
+                </div>
               </a>
-              <FAB speed dial actions 
-               <div class="fab-buttons fab-buttons-bottom">
-                <a href="">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-              </div>
             </div>
-          -->  
-          
-            <div class="row">
-              <div class="col cuadro">
-                <a href="">
-                  <h6>Mi blog</h6>
-                </a>
-              </div>
-              <div class="col cuadro"></div>
+            <div class="col">
+              <a href="">
+                <div class="elevation-2 cuadro">
+                  <br><br><i class="icon f7-icons material-icons color-pink">pin_fill</i>
+                  <span class="text-color-black"> <b>A hacer</b></span>
+                </div>
+              </a>
             </div>
+          </div>
+
             <br>
 
-            <div class="row">
-              <div class="col cuadro"></div>
-              <div class="col cuadro"></div>
+          <div class="row">
+            <div class="col">
+              <a href="">
+                <div class="elevation-3 cuadro">
+                  <br><br><i class="icon f7-icons material-icons color-pink">briefcase_fill</i>
+                  <span class="text-color-black"> <b>Esenciales</b></span>
+                </div>
+              </a>
             </div>
-            <br>
+            <div class="col">
+              <a href="">
+                <div class="elevation-4 cuadro">
+                  <br><br><i class="icon f7-icons material-icons color-pink">waveform_path</i>
+                  <span class="text-color-black"> <b>Ejercicios</b></span>
+                </div>
+              </a>
+            </div>
+          </div>
 
-            <div class="row">
-              <div class="col cuadro"></div>
-              <div class="col cuadro"></div>
-            </div>
             <br>
           
+          <div class="row">
+            <div class="col">
+              <a href="">
+                <div class="elevation-5 cuadro">
+                  <br><br><i class="icon f7-icons material-icons color-pink">folder_fill_badge_person_crop</i>
+                  <span class="text-color-black"> <b>Nombres</b></span>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a href="">
+                <div class="elevation-6 cuadro">
+                  <br><br><i class="icon f7-icons material-icons color-pink">plus_rectangle_fill</i>
+                  <span class="text-color-black"> <b>Turnos</b></span>
+                </div>
+              </a>
+            </div>
+          </div>
+            
         </div>
+      <!-- cuerpo -->
+
+      <!-- popup content -->
+        <div class="popup popup-about">
+          <div class="block">
+            <p>About</p>
+            <!-- Close Popup -->
+            <div class="row">
+              <div class="col">
+                <img src="images/sem/sem5.jpg" width="100px" alt="">
+              </div>
+
+              <div class="col">
+                <img src="images/sem/sem6.jpg" width="100px" alt="">
+              </div>
+
+              <div class="col">
+                <img src="images/sem/sem7.jpg" width="100px" alt="">
+              </div>
+            </div>
+            <p><a class="link popup-close" href="#">Close popup</a></p>
+          </div>
+        </div>
+      <!-- pop up content -->
     </div>
 </div>

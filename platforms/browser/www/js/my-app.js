@@ -221,7 +221,7 @@ console.log('datos: ' + emailLog + '/' + claveLog);
 // tengo que sacar los href de los botones y direccionarlos 
 // solo si corresponde y esta bien el login en este caso
                           if ( tipoUsuario == "VIS" ) {
-                              mainView.router.navigate("/panel/");
+                              mainView.router.navigate("/firstlog/");
                           }
                           if ( tipoUsuario == "ADM" ) {
                               mainView.router.navigate("/panel_admin/");
