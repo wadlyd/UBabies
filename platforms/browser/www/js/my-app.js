@@ -49,8 +49,8 @@ var app = new Framework7({
         url: 'midiario.html',
       },
       {
-        path: '/miperfil/',
-        url: 'miperfil.html',
+        path: '/datos/',
+        url: 'datosP.html',
       },
 
     ]
@@ -60,7 +60,7 @@ var app = new Framework7({
 var mainView = app.views.create('.view-main');
 
 var db, refUsuarios, refTiposUsuarios;  // JORGE
-var email, nombre; // JORGE 
+var email, nombre, apellido, edad, telefono, pais; // JORGE 
 
 
 // Handle Cordova Device Ready Event
@@ -104,6 +104,45 @@ $$(document).on('page:init', '.page[data-name="iniciar"]', function (e) {
     fnMostrarError(e);
 
     $$('#inicio').on('click', fnLogIn)
+})
+
+$$(document).on('page:init', '.page[data-name="datos"]', function (e) {
+    // Inicio Panel
+    fnMostrarError(e);
+
+    $$('#guardarDatos').on('click', fnDatos)
+})
+
+$$(document).on('page:init', '.page[data-name="firstlog"]', function (e) {
+    // Inicio Panel
+    fnMostrarError(e);
+
+  var calendarDefault = app.calendar.create({
+    inputEl: '#periodo',
+  });
+  console.log('#periodo').val();
+     
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var weekLater = new Date().setDate(today.getDate() + 7);
+  var calendarEvents = app.calendar.create({
+      inputEl: '#concepcion',
+      events: [
+        {
+          from: today,
+          to: weekLater
+        },
+        //- more events this day
+        {
+          date: today,
+          color: '#ff0000'
+        },
+        {
+          date: today,
+          color: '#00ff00'
+        },
+      ]
+  });
 })
 
 
@@ -156,7 +195,7 @@ function fnRegistro() {
             // registro al usuario en la base de datos.....
             // el email es la clave en la coleccion usuarios
             // dentro del usuario guardo como el dato, su nombre
-            nombre = $$('#nombre').val();
+            //nombre = $$('#nombre').val();
             var datos = {
                 nombre: nombre,
                 tipoUsuario: "VIS"
@@ -259,24 +298,30 @@ function mostrarErrores(txt) {
   console.log("ERROR: " + txt);
 }
 
-var now = new Date();
-var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-var weekLater = new Date().setDate(today.getDate() + 7);
-var calendarEvents = app.calendar.create({
-    inputEl: '#demo-calendar-events',
-    events: [
-      {
-        from: today,
-        to: weekLater
-      },
-      //- more events this day
-      {
-        date: today,
-        color: '#ff0000'
-      },
-      {
-        date: today,
-        color: '#00ff00'
-      },
-    ]
-});
+function fnDatos(){
+  nombre = $$('#nombreDatos').val();
+  apellido = $$('#apellidoDatos').val();
+  edad = $$('#edadDatos').val();
+  telefono = $$('#celularDatos').val();
+  pais = $$('#paisDatos').val();
+
+  var data = {
+    nombre : nombre,
+    apellido: apellido,
+    edad: edad,
+    telefono: telefono,
+    pais: pais,
+    tipo: "VIS"
+  }
+
+
+
+  refUsuarios.doc(email).set(data);
+
+
+
+  }
+
+
+
+

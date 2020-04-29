@@ -1,0 +1,99 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
+<div class="page" data-name="datos">
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+        <div class="left">
+            <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+            </a>
+        </div>
+        <div class="title"></div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="block block-header">
+            <img class="item-media" src="images/perfil.png" width="100vw" alt="">
+            <div class="item-inner">
+            <div class="item-title-row">
+              <a href=""><div class="item-title">Editar</div></a>
+            </div>
+            
+          </div>
+            <div class="block-title">Datos Personales</div>
+        </div>
+    
+        <div class="block block-strong">
+            <form class="list" id="my-form">
+              <ul>
+                <li>
+                  <div class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Nombre</div>
+                      <div class="item-input-wrap">
+                        <input type="text" name="name" placeholder="Tu nombre" id="nombreDatos">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Apellido</div>
+                      <div class="item-input-wrap">
+                        <input type="text" name="lastname" placeholder="Tu apellido" id="apellidoDatos">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Edad</div>
+                      <div class="item-input-wrap">
+                       <input type="number" name="edad" placeholder="Tu edad" id="edadDatos">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                
+                 <li>
+                  <div class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">País</div>
+                      <div class="item-input-wrap" id="paisDatos">
+                        <select name="pais">
+                          <option value="argentina" selected>Argentina</option>
+                          <option value="brasil">Brasil</option>
+                          <option value="chile">Chile</option>
+                          <option value="colombia">Colombia</option>
+                          <option value="mexico">Mexico</option>
+                          <option value="uruguay">Uruguay</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                 <li>
+                  <div class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Celular</div>
+                      <div class="item-input-wrap">
+                        <input type="tel" name="celular" placeholder="Tu celular" id="celularDatos">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </form>
+            
+            <div class="row">
+              <div class="col-10"></div>
+              <div class="col">
+                  <a href="#" class="button button-raised button-large button-fill color-blue" id="guardarDatos">Guardar</a>
+              </div>
+              <div class="col-10"></div>
+            </div>
+        </div>
+    </div>
+</div>
