@@ -52,6 +52,10 @@ var app = new Framework7({
         path: '/datos/',
         url: 'datosP.html',
       },
+       {
+        path: '/nombres/',
+        url: 'nombres.html',
+      },
 
     ]
     // ... other parameters
@@ -263,15 +267,18 @@ console.log('datos: ' + emailLog + '/' + claveLog);
 }
 
 
+//funcion para calcular la fecha del parto
+
 function fnCalculo(){
 
-  var fech = $$('#periodo').val();
 
-  var diasSum = 1000 * 60 * 60 * 24 * 280;
+  var fech = $$('#periodo').val(); //recuperando la fecha dada por el usuario
+
+  var diasSum = 1000 * 60 * 60 * 24 * 280;  //convertir en milisegundos 280 dias
 
   var fechaDeParto = fech.getTime() + diasSum;
 
-  $$('#resultado').val(fechaDeParto);
+  $$('#resultado').val(fechaDeParto);  //agregar a un input para luego guardar en la base de datos
 }
 
 
