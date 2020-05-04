@@ -60,7 +60,7 @@ var app = new Framework7({
 var mainView = app.views.create('.view-main');
 
 var db, refUsuarios, refTiposUsuarios;  // JORGE
-var email, nombre, apellido, edad, telefono, pais; // JORGE 
+var email, nombre; // JORGE 
 
 
 // Handle Cordova Device Ready Event
@@ -106,11 +106,11 @@ $$(document).on('page:init', '.page[data-name="iniciar"]', function (e) {
     $$('#inicio').on('click', fnLogIn)
 })
 
-$$(document).on('page:init', '.page[data-name="datos"]', function (e) {
+$$(document).on('page:init', '.page[data-name="iniciar"]', function (e) {
     // Inicio Panel
     fnMostrarError(e);
 
-    $$('#guardarDatos').on('click', fnDatos)
+    $$('#guardarDatos').on('click', fnGuarD) //function no declarada aun
 })
 
 $$(document).on('page:init', '.page[data-name="firstlog"]', function (e) {
@@ -120,29 +120,9 @@ $$(document).on('page:init', '.page[data-name="firstlog"]', function (e) {
   var calendarDefault = app.calendar.create({
     inputEl: '#periodo',
   });
-  console.log('#periodo').val();
+
+  $$('#calcular').on('click', fnCalculo)
      
-  var now = new Date();
-  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  var weekLater = new Date().setDate(today.getDate() + 7);
-  var calendarEvents = app.calendar.create({
-      inputEl: '#concepcion',
-      events: [
-        {
-          from: today,
-          to: weekLater
-        },
-        //- more events this day
-        {
-          date: today,
-          color: '#ff0000'
-        },
-        {
-          date: today,
-          color: '#00ff00'
-        },
-      ]
-  });
 })
 
 
@@ -195,7 +175,7 @@ function fnRegistro() {
             // registro al usuario en la base de datos.....
             // el email es la clave en la coleccion usuarios
             // dentro del usuario guardo como el dato, su nombre
-            //nombre = $$('#nombre').val();
+            nombre = $$('#nombre').val();
             var datos = {
                 nombre: nombre,
                 tipoUsuario: "VIS"
@@ -220,7 +200,7 @@ function fnRegistro() {
 /** funccion de Login - falta la base de datos **/
 function fnLogIn() {
 
-alert("entra en fnLogIn");
+alert("Bienvenido");
 
 
     var emailLog = $$('#emailLogin').val();
@@ -280,10 +260,18 @@ console.log('datos: ' + emailLog + '/' + claveLog);
             }
 
         });
+}
 
 
+function fnCalculo(){
 
+  var fech = $$('#periodo').val();
 
+  var diasSum = 1000 * 60 * 60 * 24 * 280;
+
+  var fechaDeParto = fech.getTime() + diasSum;
+
+  $$('#resultado').val(fechaDeParto);
 }
 
 
@@ -298,29 +286,6 @@ function mostrarErrores(txt) {
   console.log("ERROR: " + txt);
 }
 
-function fnDatos(){
-  nombre = $$('#nombreDatos').val();
-  apellido = $$('#apellidoDatos').val();
-  edad = $$('#edadDatos').val();
-  telefono = $$('#celularDatos').val();
-  pais = $$('#paisDatos').val();
-
-  var data = {
-    nombre : nombre,
-    apellido: apellido,
-    edad: edad,
-    telefono: telefono,
-    pais: pais,
-    tipo: "VIS"
-  }
-
-
-
-  refUsuarios.doc(email).set(data);
-
-
-
-  }
 
 
 
