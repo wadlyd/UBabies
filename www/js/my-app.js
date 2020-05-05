@@ -52,10 +52,15 @@ var app = new Framework7({
         path: '/datos/',
         url: 'datosP.html',
       },
-       {
+      {
         path: '/nombres/',
         url: 'nombres.html',
       },
+      {
+        path: '/esenciales/',
+        url: 'esenciales.html',
+      },
+
 
     ]
     // ... other parameters
@@ -123,6 +128,15 @@ $$(document).on('page:init', '.page[data-name="firstlog"]', function (e) {
 
   var calendarDefault = app.calendar.create({
     inputEl: '#periodo',
+    closeOnSelect: true,
+    locale: 'en-GB',
+    dateFormat: "dd/mm/yyyy",
+    on: {
+      closed: function () {
+        console.log('Calendar opened');
+        fnCalculo();
+      }
+    }
   });
 
   $$('#calcular').on('click', fnCalculo)
@@ -180,8 +194,10 @@ function fnRegistro() {
             // el email es la clave en la coleccion usuarios
             // dentro del usuario guardo como el dato, su nombre
             nombre = $$('#nombre').val();
+            apellido = $$('#apellido').val();
             var datos = {
                 nombre: nombre,
+                apellido: apellido,
                 tipoUsuario: "VIS"
             }
             refUsuarios.doc(email).set(datos).then(function(){ 
@@ -276,9 +292,65 @@ function fnCalculo(){
 
   var diasSum = 1000 * 60 * 60 * 24 * 280;  //convertir en milisegundos 280 dias
 
-  var fechaDeParto = fech.getTime() + diasSum;
 
-  $$('#resultado').val(fechaDeParto);  //agregar a un input para luego guardar en la base de datos
+  console.log('fech vale ' + fech );
+
+  fechParse = Date.parse(fech)
+
+  console.log('fech vale parse ' + fechParse );
+
+  //var fechaDeParto = fech.getTime() + diasSum;
+
+  fechaDeParto = fechParse + diasSum;
+
+  console.log('fech parto ' + fechaDeParto );
+
+/*
+unix_timestamp = fechaDeParto
+// Create a new JavaScript Date object based on the timestamp
+// multiplied by 1000 so that the argument is in milliseconds, not seconds.
+//var date = new Date(unix_timestamp * 1000);
+var date = new Date(unix_timestamp * 1);
+// Hours part from the timestamp
+var hours = date.getHours();
+// Minutes part from the timestamp
+var minutes = "0" + date.getMinutes();
+// Seconds part from the timestamp
+var seconds = "0" + date.getSeconds();
+
+// Will display time in 10:30:23 format
+var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+
+  var year = date.getFullYear();
+  var month = date.getMonth();
+  var dateN = date.getDate();
+
+console.log(year + ' - ' + month + ' - ' + dateN);
+
+
+fechaDeParto=dateN+'/'+month+'/'+year;
+*/
+    var options = {
+        weekday: "short",
+        year: "numeric",
+        month: "2-digit",
+        day: "numeric"
+    };
+
+
+    var dateFP = new Date(fechaDeParto * 1);
+  var year = dateFP.getFullYear();
+  var month = dateFP.getMonth();
+  var dateN = dateFP.getDate();
+
+console.log(year + ' - ' + month + ' - ' + dateN);
+
+var fechaDeParto = new Date(fechaDeParto).toLocaleDateString("es-ES", options);
+console.log('to locale ' + fechaDeParto)
+
+
+  $$('#resultado').html(fechaDeParto);  //agregar a un input para luego guardar en la base de datos
 }
 
 
