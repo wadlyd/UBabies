@@ -1,15 +1,17 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
 <div class="page" data-name="midiario">
     <div class="navbar">
-        <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="link back">
-            <i class="icon icon-back"></i>
-            <span class="ios-only">Back</span>
-            </a>
-        </div>
-        <div class="title">UBabies app</div>
-         <div class="right"><i data-panel=".panel-left" class="panel-open f7-icons">menu</i></div>
+      <div class="navbar-bg"></div>
+        <div class="navbar-inner sliding">
+          <div class="left">
+            <i data-panel=".panel-left" class="panel-open f7-icons">menu</i>
+          </div>
+           <div class="title">Mi Diario</div>
+          <div class="title-large">
+            <div class="title-large-text">Mi diario</div>
+          </div>
+
+           <div class="right"><i class="poup popup-open icon f7-icons material-icons" data-popup=".contenido">plus</i></div>
         </div>
     </div>
 
@@ -48,9 +50,30 @@
 
    
    <div class="page-content">
-        <div class="block-title">UBabies app</div>
-        <div class="block block-strong">
-          contenido de /midiario/ !
+        <div class="block">
+          <div class="block-title"></div>
+          <div>
+            <p class="diariot">Hola!!!</p>
+            <div class="block">
+              <div class="row">
+                <button class="col button button-outline poup popup-open" data-popup=".contenido">Agregar Contenidos</button>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="popup contenido">
+          <div class="block">
+            <p></p>
+            <!-- Close Popup -->
+            <p><a class="link popup-close" href="#">Cerrar</a></p>
+            <div class="text-editor text-editor-init" data-placeholder="Agregar notas..." 
+              data-buttons='[["bold", "italic", "underline", "strikeThrough"], ["orderedList", "unorderedList"]]'>
+              <div class="text-editor-content" contenteditable></div>
+            </div>
+          </div>
+
+        </div>
+
     </div>
 </div>

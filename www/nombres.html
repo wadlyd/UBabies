@@ -1,16 +1,20 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
 <div class="page" data-name="nombres">
-    <div class="navbar">
-        <div class="navbar-inner">
+    <div class="navbar navbar-large">
+      <div class="navbar-bg"></div>
+
+      <div class="navbar-inner sliding">
         <div class="left">
             <a href="#" class="link back">
             <i class="icon icon-back"></i>
             <span class="ios-only">Back</span>
             </a>
         </div>
-        <div class="title">UBabies app</div>
-         <div class="right"><i data-panel=".panel-left" class="panel-open f7-icons">menu</i></div>
-        </div>
+        <div class="title">Nombres</div>
+        <div class="title-large">
+          <div class="title-large-text">Nombres</div>
+      </div>
+      </div>
     </div>
 
     
@@ -25,11 +29,11 @@
             <span class="tabbar-label">Bebé</span>
           </a>
           <a href="/miembarazo/" class="tab-link">
-            <img src="images/embarazo.ico" width="12px" alt="embarazo">
-            <!--<i class="icon f7-icons material-icons">film_fill</i>-->
+            <!--<img src="images/embarazo.ico" width="12px" alt="embarazo">-->
+            <i class="icon f7-icons material-icons">table_badge_more_fill</i>
             <span class="tabbar-label">Embarazo</span>
           </a>
-          <a href="#" class="tab-link">
+          <a href="/midiario/" class="tab-link">
             <!--<img src="images/diarioo.ico" width="30px" alt="">-->
            <i class="icon f7-icons material-icons">book_fill</i>
             <span class="tabbar-label">Diario</span>
@@ -47,7 +51,7 @@
     <!-- Additional "tabbar-labels" class -->
 
    
-   <div class="page-content bg-white">
+    <div class="page-content bg-white">
         <div class="block-title">
           <a href="" class="list-button">Paises</a><span>/</span>
           <a href="" class="list-button">Mis favoritos</a>
@@ -89,7 +93,7 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="item-link item-content">
+                <a href="#" class="item-link item-content button popup-open" data-popup=".espanol">
                   <div class="item-media"><img src="images/pais/nomEs.png" width="30vw" alt=""></div>
                   <div class="item-inner">
                     <div class="item-title">Nombres españoles</div>
@@ -131,5 +135,15 @@
             </ul>
           </div>
         </div>
+
+
+         <div class="popup espanol">
+    <div class="block">
+      <p>About</p>
+      <!-- Close Popup -->
+      <p><a class="link popup-close" href="#">Close popup</a></p>
+      <p>Lorem ipsum dolor sit amet...</p>
+    </div>
+  </div>
     </div>
 </div>

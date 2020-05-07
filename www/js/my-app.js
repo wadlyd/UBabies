@@ -60,6 +60,14 @@ var app = new Framework7({
         path: '/esenciales/',
         url: 'esenciales.html',
       },
+      {
+        path: '/bolsabb/',
+        url: 'bolsabb.html',
+      },
+      {
+        path: '/blog/',
+        url: 'blog.html',
+      },
 
 
     ]
@@ -115,12 +123,12 @@ $$(document).on('page:init', '.page[data-name="iniciar"]', function (e) {
     $$('#inicio').on('click', fnLogIn)
 })
 
-$$(document).on('page:init', '.page[data-name="iniciar"]', function (e) {
+/*$$(document).on('page:init', '.page[data-name="iniciar"]', function (e) {
     // Inicio Panel
     fnMostrarError(e);
 
     $$('#guardarDatos').on('click', fnGuarD) //function no declarada aun
-})
+})*/
 
 $$(document).on('page:init', '.page[data-name="firstlog"]', function (e) {
     // Inicio Panel
@@ -194,10 +202,10 @@ function fnRegistro() {
             // el email es la clave en la coleccion usuarios
             // dentro del usuario guardo como el dato, su nombre
             nombre = $$('#nombre').val();
-            apellido = $$('#apellido').val();
+            //apellido = $$('#apellido').val();  -yo
             var datos = {
                 nombre: nombre,
-                apellido: apellido,
+                //apellido: apellido,  -yo
                 tipoUsuario: "VIS"
             }
             refUsuarios.doc(email).set(datos).then(function(){ 
@@ -295,7 +303,7 @@ function fnCalculo(){
 
   console.log('fech vale ' + fech );
 
-  fechParse = Date.parse(fech)
+  fechParse = Date.parse(fech) //convertir string en number
 
   console.log('fech vale parse ' + fechParse );
 
@@ -305,32 +313,6 @@ function fnCalculo(){
 
   console.log('fech parto ' + fechaDeParto );
 
-/*
-unix_timestamp = fechaDeParto
-// Create a new JavaScript Date object based on the timestamp
-// multiplied by 1000 so that the argument is in milliseconds, not seconds.
-//var date = new Date(unix_timestamp * 1000);
-var date = new Date(unix_timestamp * 1);
-// Hours part from the timestamp
-var hours = date.getHours();
-// Minutes part from the timestamp
-var minutes = "0" + date.getMinutes();
-// Seconds part from the timestamp
-var seconds = "0" + date.getSeconds();
-
-// Will display time in 10:30:23 format
-var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-
-  var year = date.getFullYear();
-  var month = date.getMonth();
-  var dateN = date.getDate();
-
-console.log(year + ' - ' + month + ' - ' + dateN);
-
-
-fechaDeParto=dateN+'/'+month+'/'+year;
-*/
     var options = {
         weekday: "short",
         year: "numeric",
